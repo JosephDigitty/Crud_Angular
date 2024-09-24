@@ -11,4 +11,10 @@
     <p-rating [(ngModel)]="product.rating" 
     readonly="true"
     iconCancelClass="hidden"/>
+
+    <div class="row">
+        <button pButton icon="pi pi edit" (click)="editProduct()">Edit</button>
+        <button pButton icon="pi pi trash" (click)="deleteProduct()">Delete</button>
+    </div>
+
 </div>

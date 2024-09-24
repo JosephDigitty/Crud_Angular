@@ -18,13 +18,7 @@ export class HomeComponent {
       private productService: ProductsService,
     ) {  
     }
-    selectedProduct: Product = {
-      id: 0,
-      price: '',
-      name: '',
-      image: '',
-      rating: 0,
-    }
+    
     displayEditPopup: boolean = false;
     displayAddPopup: boolean = false;
     toogleEditPopup(product: Product){
@@ -34,8 +28,18 @@ export class HomeComponent {
     toogleAddPopup(){
       this.displayAddPopup = true;
     }
+    toogleDeletePopup(product: Product) {
 
-    onConfirmEdit(product: Product, id: number) {
+    }
+    selectedProduct: Product = {
+      id: 0,
+      price: '',
+      name: '',
+      image: '',
+      rating: 0,
+    }
+
+    onConfirmEdit(product: Product) {
       if (this.selectedProduct.id) {
         return 
       }

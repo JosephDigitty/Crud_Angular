@@ -1,7 +1,20 @@
 <div class="column gap-1">
-    <div class="row wrap gap-1 space-between">
-        <app-product  *ngFor="let product of products" [product]="product" (productOutput)="onProductOutput($event)" >
 
+    <button 
+    type="button"
+    pButton 
+    icon="pi pi-plus" 
+    (click)="toogleAddPopup()" 
+    label="Add New Product" 
+    class="p-button-success">
+    </button>
+    <div class="row wrap gap-1 space-between">
+        <app-product  
+        *ngFor="let product of products" 
+        [product]="product" 
+        (edit)="toogleEditPopup(product)"
+        (delete)="toogleDeletePopup($event)"
+        >
         </app-product>
         
     </div>
@@ -14,17 +27,5 @@
 </div>
 
 
-<app-edit-popup 
-   [product]="product"
-   [display]="displayEditPopup"
-   (confirm)="onConfirmEdit($event)"
-   header="Edit Product"
->
-</app-edit-popup>
 
-<app-edit-popup
-    [display]="displayaddPopup"
-    (confirm)="onConfirmNew($event)"
-    header="Add New Product"
->
-</app-edit-popup>
+

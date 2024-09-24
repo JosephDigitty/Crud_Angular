@@ -14,12 +14,13 @@ import { RatingModule } from 'primeng/rating';
   styleUrl: './edit-popup.component.scss'
 })
 export class EditPopupComponent {
- @Input() display:boolean = false;
+ @Input() display: boolean = false;
+ @Input() header!: string;	
  @Output() confirm = new EventEmitter<Product>();
  @Output() cancel = new EventEmitter<void>();
- @Input() header!: string;	
+ 
 
- product: Product = { 
+  @Input() product: Product = { 
   price: '', 
   name: '', 
   image: '', 
@@ -32,7 +33,7 @@ export class EditPopupComponent {
   }
 
   onCancel() {
-    this.cancel.emit();
+    this.display = false;
     
   }
 }
